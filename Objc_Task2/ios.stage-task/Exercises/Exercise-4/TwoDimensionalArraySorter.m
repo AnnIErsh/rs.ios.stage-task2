@@ -33,8 +33,9 @@
     NSArray *strs = [arrOfStrs sortedArrayUsingSelector:@selector(compare:)];
     if (numbs.count && strs.count)
     {
+        NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];
         [fullArr addObject:numbs];
-        [fullArr addObject:strs];
+        [fullArr addObject:[strs sortedArrayUsingDescriptors: @[desc]]];
     }
     else
     {
